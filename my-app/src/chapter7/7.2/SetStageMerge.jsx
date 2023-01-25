@@ -5,28 +5,38 @@ function SetStateMerge(props) {
 
   const handleAdd = () => {
     console.log('handleAdd Start');
-    setResult(result + 5);
+    // setResult(result + 5);
+    setResult(result => result + 5);
     console.log('handleAdd end');
   };
   const handleSub = () => {
     console.log('handleSub Start');
-    setResult(result - 3);
+    // setResult(result - 3);
+    setResult(result => result - 3);
     console.log('handleSub end');
   };
   const handleMul = () => {
     console.log('handleMul Start');
-    setResult(result * 2);
+    // setResult(result * 2);
+    setResult(result => result * 2);
     console.log('handleMul end');
   };
   const handleDiv = () => {
     console.log('handleDiv Start');
-    setResult(result / 2);
+    // setResult(result / 2);
+    setResult(result => result / 2);
     console.log('handleDiv end');
   };
   const handleMixCalc = () => {
     handleAdd();
     handleMul();
   };
+  // set함수는 비동기로 처리됨
+  // 그래서 하나의 state를 동시에 여기저기서 수정하려고 할 때 문제 발생
+  // set함수안에 그냥 인자값 넣는게 아니라 콜백 함수 형태로 넣어주면 해결
+
+
+
 
   return (
     <div>
