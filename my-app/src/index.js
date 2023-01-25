@@ -12,6 +12,7 @@ import CommentList from './chapter5/CommentList';
 import NotificationList from './chapter6/NotificationList';
 import Counter from './chapter7/7.2/Counter';
 import CounterEffect from './chapter7/7.3/CounterEffect';
+import SetStateMerge from './chapter7/7.2/SetStageMerge';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(
@@ -44,7 +45,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 // 8장 예제
 root.render(
-  <CounterEffect />
+  <SetStateMerge />
 );
 
 
