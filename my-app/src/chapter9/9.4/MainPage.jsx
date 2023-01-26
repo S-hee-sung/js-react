@@ -34,7 +34,7 @@ function MainPage() {
   };
   
   return (  
-    <div>
+    <div style={{ padding: 16 }}>
       <warningBanner warn ={showWarning} />
       <button style={styles.button} onClick={handleToggleClick}>
         {showWarning ? '감추기' : '보이기'}
