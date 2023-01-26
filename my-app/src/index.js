@@ -22,7 +22,11 @@ import ParentComponent from './chapter7/7.5/ParentComponent';
 import TextInputWithFocusButton from './chapter7/7.6/TextInputWithFocusButton';
 import ComponentVariable from './chapter7/7.6/ComponentVariable';
 import UserStatusEx from './chapter7/7.8/ex1/UserStatusEx';
-import InputContainer from './chapter7/7.8/ex1/ex2/InputContainer';
+import InputContainer from './chapter7/7.8/ex2/InputContainer';
+import Accommodate from './chapter7/7.8/Accommodate';
+import Toggle from './chapter8/8.1/Toggle';
+import MyButton from './chapter8/8.2/MyButton';
+import ConfirmButton from './chapter8/ConfirmButton';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(
@@ -49,11 +53,6 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 // );
 
 // 7장 예제
-// root.render(
-//   <Counter />
-// );
-
-// 8장 예제
 root.render(
   // <EffectSummary />
   // <EffectContainer />
@@ -62,10 +61,17 @@ root.render(
   // <ParentComponent />
   // <TextInputWithFocusButton />
   // <ComponentVariable />
-  <InputContainer />
+  // <InputContainer />
+  <Accommodate />
 );
 
+// 8장 예제
+root.render(
 
+  // <Toggle />
+  // <MyButton />
+  <ConfirmButton />
+);
 
 
 
