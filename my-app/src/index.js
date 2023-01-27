@@ -34,6 +34,12 @@ import LoginControlRefactoring from './chapter9/9.3/LoginControlRefactoring';
 import MainPage from './chapter9/9.4/MainPage';
 import Toolbar from './chapter9/9.4/Toolbar';
 import LandingPage from './chapter9/9.4/LandingPage';
+import NumberList from './chapter10/10.1/NumberList';
+import AttendanceBook from './chapter10/AttendanceBook';
+import MainForm from './chapter11/11.2/MainForm';
+import EssayForm from './chapter11/11.3/EssayForm';
+import FlavorForm from './chapter11/11.3/FlavorForm';
+import FileInput from './chapter11/11.3/FileInput';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(
@@ -91,8 +97,26 @@ root.render(
   // <Mailbox unreadMessages={messages} />
   // <LoginControlRefactoring />
   // <MainPage />
-  <LandingPage />
+  // <LandingPage />
+);
 
+// 10장 예제
+const numbers = [1,2,3,4,5];
+root.render(
+
+  // <NumberList numbers = {numbers} />
+  // <AttendanceBook  />
+);
+
+// 11장 예제
+root.render(
+
+  // <Toggle />
+  // <MyButton />
+  // <MainForm />
+  // <EssayForm />
+  // <FlavorForm />
+  <FileInput />
 );
 
 
