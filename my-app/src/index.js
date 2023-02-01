@@ -51,6 +51,8 @@ import SignUpDialog from './chapter13/13.1.3/SignUpDialog';
 import ProfileCard from './chapter13/ProfileCard';
 import MainContent from './chapter14/MainContent';
 import DarkOrLight from './chapter14/DarkOrLight';
+import StyledPage from './chapter15/StyledPage';
+import Blocks from './chapter15/Blocks';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(
@@ -150,11 +152,17 @@ const numbers = [1,2,3,4,5];
 // );
 
 // 14장 예제
-root.render(
+// root.render(
 
-  // <ProfileCard />
-  // <MainContent />
-  <DarkOrLight />
+//   // <ProfileCard />
+//   // <MainContent />
+//   <DarkOrLight />
+// );
+
+// 15장 예제
+root.render(
+  // <StyledPage />
+  <Blocks />
 );
 
 
