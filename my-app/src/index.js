@@ -48,6 +48,9 @@ import WelcomeDialog from './chapter13/13.1.1.1/WelcomeDialog';
 import SplitPaneSection from './chapter13/13.1.1.2/SplitPaneSection';
 import DialogContainer from './chapter13/13.1.2/DialogContainer';
 import SignUpDialog from './chapter13/13.1.3/SignUpDialog';
+import ProfileCard from './chapter13/ProfileCard';
+import MainContent from './chapter14/MainContent';
+import DarkOrLight from './chapter14/DarkOrLight';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(
@@ -74,70 +77,84 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 // );
 
 // 7장 예제
-root.render(
-  // <EffectSummary />
-  // <EffectContainer />
-  // <TimerContainer />
-  // <HeavyCalculator />
-  // <ParentComponent />
-  // <TextInputWithFocusButton />
-  // <ComponentVariable />
-  // <InputContainer />
-  <Accommodate />
-);
+// root.render(
+//   // <EffectSummary />
+//   // <EffectContainer />
+//   // <TimerContainer />
+//   // <HeavyCalculator />
+//   // <ParentComponent />
+//   // <TextInputWithFocusButton />
+//   // <ComponentVariable />
+//   // <InputContainer />
+//   <Accommodate />
+// );
 
 // 8장 예제
-root.render(
+// root.render(
 
-  // <Toggle />
-  // <MyButton />
-  // <ConfirmButton />
-);
+//   // <Toggle />
+//   // <MyButton />
+//   // <ConfirmButton />
+// );
 
 // 9장 예제
 const messages = ['React', 'RE: React','RE:RE: React' ]
 // const messages = []
-root.render(
+// root.render(
 
-  // <Greeting isLoggedIn = {true} />
-  // <Greeting isLoggedIn = {false} />
-  // <LoginControl />
-  // <Mailbox unreadMessages={messages} />
-  // <LoginControlRefactoring />
-  // <MainPage />
-  // <LandingPage />
-);
+//   // <Greeting isLoggedIn = {true} />
+//   // <Greeting isLoggedIn = {false} />
+//   // <LoginControl />
+//   // <Mailbox unreadMessages={messages} />
+//   // <LoginControlRefactoring />
+//   // <MainPage />
+//   // <LandingPage />
+// );
 
 // 10장 예제
 const numbers = [1,2,3,4,5];
-root.render(
+// root.render(
 
-  // <NumberList numbers = {numbers} />
-  // <AttendanceBook  />
-);
+//   // <NumberList numbers = {numbers} />
+//   // <AttendanceBook  />
+// );
 
 // 11장 예제
-root.render(
+// root.render(
 
-  // <Toggle />
-  // <MyButton />
-  // <MainForm />
-  // <EssayForm />
-  // <FlavorForm />
-  // <FileInput />
-  // <Reservation />
-  // <ReservationRefactoring />
-  // <SignUp/>
-);
+//   // <Toggle />
+//   // <MyButton />
+//   // <MainForm />
+//   // <EssayForm />
+//   // <FlavorForm />
+//   // <FileInput />
+//   // <Reservation />
+//   // <ReservationRefactoring />
+//   // <SignUp/>
+// );
 
 // 12장 예제
+// root.render(
+
+//   // <Calculator  />
+//   // <WelcomeDialog  />
+//   // <SplitPaneSection  />
+//   // <DialogContainer />
+//   <SignUpDialog />
+// );
+
+// 13장 예제
+// root.render(
+
+//   <ProfileCard />
+// );
+
+// 14장 예제
 root.render(
 
-  // <Calculator  />
-  // <WelcomeDialog  />
-  // <SplitPaneSection  />
-  // <DialogContainer />
-  <SignUpDialog />
+  // <ProfileCard />
+  // <MainContent />
+  <DarkOrLight />
 );
 
 
