@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
+import PostListItem from './PostListItem';
 
 const Wrapper = styled.div`
   display: flex;
@@ -14,11 +15,25 @@ const Wrapper = styled.div`
   }
 `;
 
+// map() 함수를 사용하여 PostListItem을 반복 렌더링하는 컴포넌트
 function PostList(props) {
+  const { posts, onClickItem } = props;
+
   return (
-    <div>
-      
-    </div>
+    <Wrapper>
+      {/* 반복 렌더링 */}
+      {posts.map((post) => {
+        return(
+          <PostListItem 
+            key={post.id} 
+            post={post}
+            onClick={() => {
+              onClickItem(post);
+            }}
+          />
+        );
+      })}
+    </Wrapper>
   );
 }
 
