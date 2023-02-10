@@ -54,6 +54,7 @@ import DarkOrLight from './chapter14/DarkOrLight';
 import StyledPage from './chapter15/StyledPage';
 import Blocks from './chapter15/Blocks';
 import SimpleRouter from './chapter16/SimpleRouter';
+import ApiRequest from './chapter17/ApiRequest';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(
@@ -166,10 +167,16 @@ const numbers = [1,2,3,4,5];
 //   <Blocks />
 // );
 
-// 16장 예제
+// // 16장 예제
+// root.render(
+//   <SimpleRouter />
+// );
+
+// 17장 예제
 root.render(
-  <SimpleRouter />
+  <ApiRequest />
 );
+
 
 
 // If you want to start measuring performance in your app, pass a function
