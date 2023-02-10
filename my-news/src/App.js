@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { useCallback, useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import Categories from "./components/Categories";
+import NewsList from "./components/NewsList";
+import NewsPage from "./pages/NewsPage";
 
+// state로 관리시
+// function App() {
+//   // 현재 선택한 category 상태 관리
+//   const [category, setCategory] = useState('all');
+
+//   const handleSelect = useCallback((categoryValue) => {
+//     setCategory(categoryValue);
+//   },[]);
+  
+//   return (
+//     <>
+//       <Categories category={category} onSelect={handleSelect} />
+//       <NewsList category={category} />
+//     </>
+//   );
+// }
+
+// 라우팅 +URL파라미터 적용시
 function App() {
+  // 현재 선택한 category 상태 관리
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      {/* ?는 category 값이 선택적이라는 의미 */}
+      {/* 즉, 있을 수도 있고, 없을 수도 있다는 뜻 */}
+      <Route path="/:category?" element={<NewsPage />} />
+    </Routes>
   );
 }
 
