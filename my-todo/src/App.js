@@ -48,6 +48,11 @@ function App() {
     const dbTodos = JSON.parse(localStorage.getItem('todos')) || [];
     setTodos(dbTodos);
   }, []);
+  
+  // 로컬 스토리지에 저장하기
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
 
   // todos 배열에 새 객체를 추가하기 위한 handleInsert() 함수 정의
   // 새 개체를 만들 때마다 id값에 1씩 더해 주어야 하는데 useRef()를 사용하여 변수 생성 
