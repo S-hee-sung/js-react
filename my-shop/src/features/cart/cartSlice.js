@@ -38,13 +38,13 @@ const cartSlice = createSlice({
     // 장바구니에 아이템을 추가하는 리듀서 함수 만들기
     // 이미 들어있는 상품이면 카운트만 증가
     // 장바구니에 없는 상품이면 새롭게 추가
-    addItemToCart: (state, {payload: item}) => {
+    addItemToCart: (state, action, {payload: item}) => {
       // item = {id, title, price, count}; 를 받아옴
       // find()를 사용하여 해당 상품이 있는지 찾고~ 
       // console.log(item);
-      const fintdItem = state.cartList.find((cart) => cart.id === item);
-      fintdItem.value += action.payload;
-    },
+      const fintdItem = state.cartList.find((cart) => cart.id === action.item);
+      fintdItem.push(action.item);
+    }
   }
 });
 
