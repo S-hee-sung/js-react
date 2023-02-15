@@ -1,8 +1,15 @@
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Button, Container, Row } from "react-bootstrap";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllProducts, getProductById } from "../features/product/productSlice";
 import axios from "axios";
+
+import { 
+  getAllProducts, 
+  getMoreProducts,
+  getMoreProductsAsync, 
+  selectProductList,
+  selectStatus
+} from "../features/product/productSlice";
 
 // 리액트(js)에서 이미지 파일 import 하는법
 import yonexImg from "../images/yonex.jpg";
@@ -11,6 +18,7 @@ import yonexImg from "../images/yonex.jpg";
 import data from "../data.json";
 import { useEffect } from "react";
 import ProductListItem from "../components/ProductListItem";
+import { getProducts } from "../api/productAPI";
 
 const MainBackground = styled.div`
   height: 500px;
@@ -22,7 +30,11 @@ const MainBackground = styled.div`
 
 function Main(props) {
   const dispatch = useDispatch();
-  const productList = useSelector((state) => state.product.productList);
+  const productList = useSelector(selectProductList);
+
+  // API 요청 상태 가져오기(로딩 상태)
+  // 로딩 만들기 추천: react-spinners, LottieFiles
+  const status = useSelector(selectStatus);
 
   console.log(productList);
 
@@ -34,6 +46,14 @@ function Main(props) {
     // ...api call ...
     dispatch(getAllProducts(data));
   }, []);
+
+  const handleGetMoreProducts = async() => {
+    const result = await getProducts();
+    if (!result) return;   
+  
+    dispatch(getMoreProducts(result));
+  };
+  
 
   return (  
     <>
@@ -68,6 +88,8 @@ function Main(props) {
             axios.get('http://localhost:4000/products')
               .then((response) => {
                 console.log(response.data);
+                // 스토어에 dispatch로 요청 보내기
+                dispatch(getMoreProducts(response.data));
               })
               .catch((error) => {
                 console.error(error);
@@ -76,8 +98,20 @@ function Main(props) {
         >
           더보기
         </Button>
-      </section>
 
+        {/* 위 HTTP 요청 코드를 함수로 만들어서 API 폴터로 추출하고
+        async/await로 바꾸기 */}
+        <Button variant="secondary" className="mb-4" onClick={handleGetMoreProducts}>
+          더보기2
+        </Button>
+
+        {/* thunk를 이용한 비동기 작업 처리하기 */}
+        <Button variant="secondary" className="mb-4" 
+          onClick={() => dispatch(getMoreProductsAsync()) }>
+          더보기3  {status}
+        </Button>
+
+      </section>
     </>
   );
 }

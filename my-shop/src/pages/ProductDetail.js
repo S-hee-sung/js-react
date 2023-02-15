@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Alert, Button, Col, Container, Form, Row } from "react-bootstrap";
+import { Alert, Button, Col, Container, Form, Nav, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getProductById, selectSelectedProduct } from "../features/product/productSlice";
@@ -8,6 +8,7 @@ import { getProductById, selectSelectedProduct } from "../features/product/produ
 import data from "../data.json";
 import styled, { keyframes } from "styled-components";
 import { ToastContainer, toast } from "react-toastify";
+import TabContents from "../components/TabContents";
 
 // 스타일드 컴포넌트를 이용한 애니메이션 속성 적용
 const highlight = keyframes`
@@ -22,7 +23,7 @@ const StyledAlert = styled(Alert)`
 
 function ProductDetail(props) {
   // useParams() 사용하여 productId 가져오기
-  const { productId  } = useParams();
+  const { productId  } = useParams(); 
   const dispatch = useDispatch();
   
   // 전역 스토어에서 selectedProduct 꺼내오기
@@ -34,6 +35,8 @@ function ProductDetail(props) {
   const [showInfo, setShowInfo] = useState(true);
 
   const [orderCount, setOrderCount] = useState(1); // 주문수량 판매
+
+  const [showTabIndex, setShowTabIndex] = useState(0); // 탭 index 상태
   
   const handleChangeOrderCount = (e) => {
     if (isNaN(e.target.value)) {
@@ -102,6 +105,60 @@ function ProductDetail(props) {
           <Button variant="primary">주문하기</Button>
         </Col>
       </Row>
+
+      {/* 탭 UI */}
+      {/* defaultActiveKey: 기본으로 active할 탭, active 클래스가 들어가 있음 */}
+      <Nav variant="tabs" defaultActiveKey="/home" className="my-3">
+        <Nav.Item>
+          <Nav.Link eventKey="link-0" onClick={() => { setShowTabIndex(0); }}>상세정보</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-1" onClick={() => { setShowTabIndex(1); }}>리뷰</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-2" onClick={() => { setShowTabIndex(2); }}>Q&amp;A</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-3" onClick={() => { setShowTabIndex(3); }}>반품/교환정보</Nav.Link>
+        </Nav.Item>
+      </Nav>
+      
+      {/* 탭의 내용을 다 만들어놓고 조건부 렌더링하면 됨 */}
+      {/* 방법 1 */}
+      {showTabIndex === 0
+        ? <div>탭 내용1</div>
+        : showTabIndex === 1
+          ? <div>탭 내용2</div>
+          : showTabIndex === 2
+            ? <div>탭 내용3</div>
+            : showTabIndex === 3
+              ? <div>탭 내용4</div>
+              : null
+      }
+
+      {/* 방법2. 컴포넌트 추출 */}
+      <TabContents showTabIndex={showTabIndex} />
+
+      {/* 방법3. 배열이나 객체 형태로 만들어서 조건부 렌더링 */}
+      {/* 배열 형태 */}
+      {
+        [
+          <div>탭 내용1</div>,
+          <div>탭 내용2</div>,
+          <div>탭 내용3</div>,
+          <div>탭 내용4</div>,
+        ][showTabIndex]
+      }
+      {/* 객체 형태 */}
+      {
+        {
+          'detail': <div>탭 내용1</div>,
+          'detail': <div>탭 내용2</div>,
+          'detail': <div>탭 내용3</div>,
+          'detail': <div>탭 내용4</div>,
+        }['detail']
+      }
+
     </Container>
   );
 }
