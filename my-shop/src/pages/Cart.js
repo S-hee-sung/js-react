@@ -1,9 +1,10 @@
 import { Table } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { selectCartList } from "../features/cart/cartSlice";
+import { selectCartList, increaseCount, decreaseCount } from "../features/cart/cartSlice";
+
 
 function Cart(props) {
-
+const dispatch = useDispatch();
 const cartList = useSelector(selectCartList);
 
   return (  
@@ -30,12 +31,16 @@ const cartList = useSelector(selectCartList);
             2. cartList 반복 렌더링 + 데이터 바인딩
           */}
 
-          {cartList.map((cart) => 
+          {cartList.map((cart, index) => 
             <tr key={cart.id} cart={cart}>
-              <td>{cart.id}</td>
+              <td>{index + 1}</td>
               <td>{cart.title}</td>
-              <td>{cart.count}</td>
-              <td>{cart.price}</td>
+              <td>
+                <button type="button" onClick={() => { dispatch(decreaseCount(cart.id)); }}>-</button>
+                {cart.count}
+                <button type="button" onClick={() => { dispatch(increaseCount(cart.id)); }}>+</button>
+              </td>
+              <td>{cart.price * cart.count}원</td>
             </tr>
           )}
         </tbody>

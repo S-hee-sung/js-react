@@ -3,6 +3,7 @@ import { Alert, Button, Col, Container, Form, Nav, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getProductById, selectSelectedProduct } from "../features/product/productSlice";
+import { addItemToCart } from "../features/cart/cartSlice";
 
 // 서버에서 받아온 데이터라고 가정
 import data from "../data.json";
@@ -103,6 +104,17 @@ function ProductDetail(props) {
           </Col>
 
           <Button variant="primary">주문하기</Button>
+          <Button variant="warning"
+            onClick={() => {
+              dispatch(addItemToCart({ 
+                id: product.id,
+                title: product.title, 
+                price:product.price, 
+                count:product.orderCount,
+              }));
+            }}
+          >장바구니</Button>
+
         </Col>
       </Row>
 
