@@ -43,7 +43,7 @@ const cartSlice = createSlice({
       // find()를 사용하여 해당 상품이 있는지 찾고~ 
       // console.log(item);
       const fintdItem = state.cartList.find((cart) => cart.id === item);
-      
+      fintdItem.value += action.payload;
     },
   }
 });
