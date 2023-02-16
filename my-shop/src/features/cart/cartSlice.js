@@ -41,14 +41,23 @@ const cartSlice = createSlice({
     addItemToCart: (state, {payload: item}) => {
       // item = {id, title, price, count}; 를 받아옴
       // find()를 사용하여 해당 상품이 있는지 찾고~ 
-      // console.log(item);
-      const fintdItem = state.cartList.find((cart) => cart.id === item);
-      fintdItem.value += action.payload;
+      console.log(item);
+      const targetItem = state.cartList.find((cart) => cart.id === item.id);
+      
+      if (targetItem) {
+        targetItem.count += item.count;
+      } else {
+        state.cartList.push(item);
+      }
     },
+    removeItemFromCart: (state, {payload: item}) => {
+      const targetIndex = state.cartList.findIndex((cart) => cart.id === item.id);
+      state.cartList.splice(targetIndex,1);
+    }
   }
 });
 
-export const { increaseCount, decreaseCount, addItemToCart } = cartSlice.actions;
+export const { increaseCount, decreaseCount, addItemToCart, removeItemFromCart } = cartSlice.actions;
 
 export const selectCartList = state => state.cart.cartList;
 
