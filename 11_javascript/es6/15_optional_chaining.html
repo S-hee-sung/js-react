@@ -95,6 +95,24 @@
     for (const ceo of ceos) {
       graduationYear = ceo.education?.university?.graduation?.year;
     }
+
+
+    const person = {
+      name: 'JH Kim',
+      job: 'teacher',
+      education: { // optional
+        high_school: { /* ... */ }, // optional
+        university: { // optional
+          name: 'Incheon Hawaii',
+          major: 'ICE',
+        }
+      }
+    };
+
+
+      universityMajor = person?.education?.university?.major;
+      console.log(universityMajor);
+
   </script>
 </head>
 <body>
