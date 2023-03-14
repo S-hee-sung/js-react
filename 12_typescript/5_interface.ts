@@ -78,24 +78,38 @@ type Cat = { age: number } & Animal; // & 기호(intersection type)
 
 // Quiz
 // Q1. interface를 이용해서 타입을 만들어보세요.
-// let product = { 
-//   brand: 'Samsung', 
-//   serialNumber: 12345, 
-//   model: ['TV', 'phone']
-// };
+interface Product {
+  brand: string;
+  serialNumber: number;
+  model: string[]
+}
+let product: Product = { 
+  brand: 'Samsung', 
+  serialNumber: 12345, 
+  model: ['TV', 'phone']
+};
 
 
 // Q2. interface를 이용해서 타입을 만들어보세요.
 // 아래와 같이 배열 안에 객체 여러 개가 들어갑니다.
-// let cartList = [
-//   { product: '냉장고', price: 2000000 }, 
-//   { product: '모니터', price: 800000 },
-//   { product: '마우스', price: 150000 } 
-// ]; 
-// 이렇게 객체들이 잔뜩 들어갈 수 있는 배열은 어떻게 타입을 지정할지?
+interface CartList {
+  product: string;
+  price: number;
+}
+
+let cartList: CartList[] = [
+  { product: '냉장고', price: 2000000 }, 
+  { product: '모니터', price: 800000 },
+  { product: '마우스', price: 150000 } 
+]; 
 
 
 // Q3. 위에서 만든 interface 타입을 확장해보세요.
 // 갑자기 서비스가 업데이트 되어서 일부 상품은 soldout 속성이 들어가야합니다. 
-// let item = { product: '청소기', price: 700000, soldout: true };
+
+interface Item extends CartList {
+  soldout?: boolean;
+}
+
+let item: Item = { product: '청소기', price: 700000, soldout: true };
 // 위에서 만든 interface를 확장해서 타입을 만들어보세요.

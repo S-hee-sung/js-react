@@ -62,7 +62,9 @@ ironMan3.fight();
 ironMan3.laser();
 
 // ES6 클래스와 차이점은 클래스의 멤버에 접근하는 권한을 설정 가능(접근 제한자)
-// public(전체 공개), protected(상속 받은 클래스에서만 접근 가능)
+// public(전체 공개) - 기본값
+// protected(상속 받은 클래스에서만 접근 가능)
+// private(비공개, 해당 클래스 내부에서만 접근 가능)
 
 
 
