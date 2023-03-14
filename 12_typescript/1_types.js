@@ -7,7 +7,7 @@
 // boolean, number, string, Array, object, 튜플(tuple), enum, any, void, null과 undefined, never 등이 있음.
 // 1. boolean
 // true 또는 false 값을 저장하는 타입
-let active = true;
+// let active: boolean = true;
 // 이 변수에는 boolean 타입만 들어올 수 있음.
 // active = 123; // 타입이 실수로 변경될 때 에러 발생
 // 2. number
@@ -159,7 +159,7 @@ let frontClass = {
     teacher: 'Kim',
     student: 'Lee'
 };
-// frontClass.subject[5] = false;
-// frontClass.student = ['Lee', 'Park'];
+frontClass.subject[5] = false;
+frontClass.student = ['Lee', 'Park'];
 // 타입 지정을 안해주면 터미널에 에러 발생
 // 에러가 안나게 frontClass라는 변수에 타입 지정

@@ -10,7 +10,7 @@
 
 // 1. boolean
 // true 또는 false 값을 저장하는 타입
-let active: boolean = true;
+// let active: boolean = true;
 // 이 변수에는 boolean 타입만 들어올 수 있음.
 // active = 123; // 타입이 실수로 변경될 때 에러 발생
 
@@ -195,13 +195,13 @@ let value2 = 123;
 let userName: string = 'Kim';
 let userAge: (number | undefined) = undefined;
 let married: boolean = false; 
-let userInfo: any = [userName, userAge, married];
+let userInfo: (string | number | undefined | boolean )[] = [userName, userAge, married];
 // 단, userAge 변수엔 undefined 말고 숫자도 들어올 수 있음
 
 
 // Q5. frontClass라는 변수에 타입을 지정해보세요.
 let frontClass: {
-  subject: any,
+  subject: (string | boolean)[],
   score: number[],
   teacher: string,
   student: string | string[]
